@@ -98,7 +98,7 @@ public class User{
     }
 
     public boolean addGrant(Permission permission, Scope[] scope) {
-        if (permissions.containsKey(permission.getId())) {
+        //if (permissions.containsKey(permission.getId())) {
             if (grants.containsKey(permission)) {
                 Scope[] existingScopes = grants.get(permission);
                 Scope[] newScopes = new Scope[existingScopes.length + scope.length];
@@ -109,9 +109,9 @@ public class User{
                 grants.put(permission, scope);
             }
             return true;
-        } else {
-            throw new IllegalArgumentException("Permission with ID " + permission.getId() + " does not exist.");
-        }
+        //} else {
+        //    throw new IllegalArgumentException("Permission with ID " + permission.getId() + " does not exist.");
+        //}
     }
     
     public void removeGrant(Permission permission) {
