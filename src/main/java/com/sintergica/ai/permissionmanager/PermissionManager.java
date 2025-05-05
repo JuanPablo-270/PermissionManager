@@ -4,6 +4,7 @@ package com.sintergica.ai.permissionmanager;
 import com.sintergica.ai.permissionmanager.v1.Alpha;
 import com.sintergica.ai.permissionmanager.v2.Bravo;
 import com.sintergica.ai.permissionmanager.v3.Charly;
+import com.sintergica.ai.permissionmanager.v4.Delta;
 
 /**
  *
@@ -21,5 +22,8 @@ public class PermissionManager {
         
         System.out.println("<-------------------------------------Charly------------------------------------->");
         Charly.run();
+        
+        System.out.println("<-------------------------------------Delta------------------------------------->");
+        Delta.run();
     }
 }
