@@ -1,8 +1,6 @@
 package com.sintergica.ai.permissionmanager.v1;
 
 import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
 
 public enum Permission {
     READ(1, "Read", "Permission to read data"),

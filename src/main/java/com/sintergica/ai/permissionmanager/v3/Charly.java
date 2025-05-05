@@ -1,11 +1,14 @@
 package com.sintergica.ai.permissionmanager.v3;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.sintergica.ai.permissionmanager.v3.p1.Permission;
 import com.sintergica.ai.permissionmanager.v3.p1.Scope;
 import com.sintergica.ai.permissionmanager.v3.p1.User;
+import com.sintergica.ai.permissionmanager.v3.p3.ScopeType;
 
 public class Charly {
 
@@ -76,7 +79,7 @@ public class Charly {
         System.out.println("Permisos: " + Integer.toBinaryString(perms));
     }
 
-    public static void run(){
+    public static void permissionsp1(){
         User user = new User("Juan");
         user.addPermission(Permission.LEER);
         user.addPermission(Permission.ESCRIBIR);
@@ -132,5 +135,36 @@ public class Charly {
             System.out.println(json);
         } catch (JsonProcessingException e) {
         }//*/
+    }
+
+    public static void run(){
+        com.sintergica.ai.permissionmanager.v3.p3.User panther =
+                new com.sintergica.ai.permissionmanager.v3.p3.User("Panther");
+
+        com.sintergica.ai.permissionmanager.v3.p3.Util modelo1 =
+                new com.sintergica.ai.permissionmanager.v3.p3.Util("Model");
+        //modelo1.test2();
+
+        System.out.println(panther);
+
+        UUID id = UUID.fromString("1143fdc2-b7bd-4af3-abb3-90ce83545161");
+        UUID id1 = UUID.fromString("e7912251-25aa-4082-9238-eaa5e859b558");
+        UUID id2 = UUID.fromString("6954f883-3bcc-43ad-b6a4-a7d50dbaf09a");
+
+
+        modelo1.addToPermissions(ScopeType.USERS, Permission.LEER, id);
+        modelo1.addToPermissions(ScopeType.GROUPS, Permission.LEER, id1);
+        modelo1.addToPermissions(ScopeType.COMPANIES, Permission.LEER, id2);
+        modelo1.addToPermissions(ScopeType.COMPANIES, Permission.ESCRIBIR, id2);
+        modelo1.addToPermissions(ScopeType.COMPANIES, Permission.ELIMINAR, id2);
+
+        JsonParser.parse(modelo1);
+
+        modelo1.removeFromPermissions(ScopeType.COMPANIES, Permission.ELIMINAR, id2);
+        modelo1.removeFromPermissions(ScopeType.USERS, Permission.LEER, id);
+
+        JsonParser.parse(modelo1);
+        //System.out.println(panther);
+
     }
 }
