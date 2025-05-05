@@ -46,9 +46,11 @@ public class Delta {
 
 
         // Establece permisos
-        user.setPermission(id0, Permission.LEER);
+        //user.setPermission(id0, Permission.LEER);
         user.setPermission(id0, Permission.EJECUTAR);
         group.setPermission(id0, Permission.ESCRIBIR);
+        group.setPermission(id0, Permission.LEER);
+        
 
         JsonParser.parse(user);
         JsonParser.parse(group);

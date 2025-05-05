@@ -311,5 +311,19 @@
                 "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": "COMPANIES::3"
             }
         }
+    ],
+    "models": [
+        {
+            "name": "Turing",
+            "permissionsByResource": {
+                "e7912251-25aa-4082-9238-eaa5e859b558": 11,
+                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 11
+            },
+            "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161",
+            "uuids": [
+                "e7912251-25aa-4082-9238-eaa5e859b558",
+                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a"
+            ]
+        }
     ]
 }
