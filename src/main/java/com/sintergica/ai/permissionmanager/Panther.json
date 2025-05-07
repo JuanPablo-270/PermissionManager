@@ -1,41 +1,83 @@
 {
-    "models": [
-        {
-            "name": "Turing",
-            "permissionsByResource": {
-                "e7912251-25aa-4082-9238-eaa5e859b558": 11,
-                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 11
+    "models": {
+        "before": [
+            {
+                "name": "Turing",
+                "permissions": {
+                    "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 4
+                },
+                "description": "null",
+                "type": null,
+                "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
             },
-            "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161",
-            "uuids": [
-                "e7912251-25aa-4082-9238-eaa5e859b558",
-                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a"
-            ]
-        },
-        {
-            "permissions": {
-                "e7912251-25aa-4082-9238-eaa5e859b558": 7,
-                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
-            },
-            "name": "Turing",
-            "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
-        },
-        {
-            "permissions": {
-                "e7912251-25aa-4082-9238-eaa5e859b558": 7
-            },
-            "name": "ChatGPT",
-            "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
-        },
-        {
-            "permissions": {
-                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
+            {
+                "name": "ChatGPT",
+                "permissions": {
+                    "e7912251-25aa-4082-9238-eaa5e859b558": 4
+                },
+                "description": null,
+                "type": null,
+                "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
             }
-        },
-        {
-            "permissions": {
-                "e7912251-25aa-4082-9238-eaa5e859b558": 7
+        ],
+        "after": [
+            {
+                "name": "Turing",
+                "permissions": {
+                    "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
+                },
+                "description": null,
+                "type": null,
+                "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
+            },
+            {
+                "name": "ChatGPT",
+                "permissions": {
+                    "e7912251-25aa-4082-9238-eaa5e859b558": 5,
+                    "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 2
+                },
+                "description": null,
+                "type": null,
+                "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
             }
-        }
-    ]
+        ]
+    },
+    "knowledge": {
+        "before": [
+            {
+                "name": "Knowledge Base Turing",
+                "permissions": {
+                    "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 4
+                },
+                "description": null,
+                "id": null
+            },
+            {
+                "name": "Knowledge Base ChatGPT",
+                "permissions": {
+                    "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
+                },
+                "description": null,
+                "id": null
+            }
+        ],
+        "after": [
+            {
+                "name": "Knowledge Base Turing",
+                "permissions": {
+                    "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
+                },
+                "description": null,
+                "id": null
+            },
+            {
+                "name": "Knowledge Base ChatGPT",
+                "permissions": {
+                    "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
+                },
+                "description": null,
+                "id": null
+            }
+        ]
+    }
 }
