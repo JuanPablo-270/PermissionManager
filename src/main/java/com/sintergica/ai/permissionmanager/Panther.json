@@ -1,317 +1,4 @@
 {
-    "users": [
-        {
-            "read": {
-                "group_ids": [
-                    "e35df71b-da81-4fb2-bc4d-4c0a7b8ac2c4"
-                ],
-                "user_ids": []
-            },
-            "write": {
-                "group_ids": [],
-                "user_ids": []
-            }
-        },
-        {
-            "read": {
-                "group_ids": [
-                    "a96e9bee-d5d3-47fb-af6b-69d0f2d5a2d3",
-                    "0b47bd5b-ab7c-45dd-bbb9-65834039d6b6",
-                    "4fe261d9-183a-49a0-80aa-3cfd18fd5cf5"
-                ],
-                "user_ids": []
-            },
-            "write": {
-                "group_ids": [],
-                "user_ids": []
-            }
-        }
-    ],
-    "usersv1": [
-        {
-            "name": "Panther",
-            "notes": "Example, i want this result",
-            "age": 22,
-            "role": "SUPER_ADMIN",
-            "permissions": {
-                "read": [
-                    "model",
-                    "group",
-                    "users"
-                ],
-                "write": [
-                    "model",
-                    "group",
-                    "users"
-                ]
-            }
-        },
-        {
-            "name": "Panther",
-            "notes": "Example, i get this result",
-            "age": 30,
-            "role": "SUPER_ADMIN",
-            "permissions": [
-                {
-                    "ID": 32,
-                    "Permission": "LIKE"
-                },
-                {
-                    "ID": 33,
-                    "Permission": "DISLIKE"
-                },
-                {
-                    "ID": 30,
-                    "Permission": "FOLLOW"
-                },
-                {
-                    "ID": 31,
-                    "Permission": "UNFOLLOW"
-                }
-            ]
-        },
-        {
-            "name": "Panther",
-            "notes": "Example, i get this result",
-            "age": 30,
-            "role": "SUPER_ADMIN",
-            "permissions": [
-                {
-                    "32": "LIKE"
-                },
-                {
-                    "33": "DISLIKE"
-                },
-                {
-                    "30": "FOLLOW"
-                },
-                {
-                    "31": "UNFOLLOW"
-                }
-            ],
-            "grants": {
-                "FOLLOW": [
-                    "MODEL",
-                    "USER",
-                    "GROUP",
-                    "SYSTEM"
-                ],
-                "UNFOLLOW": [
-                    "USER",
-                    "GROUP"
-                ]
-            }
-        },
-        {
-            "name": "Panther",
-            "email": "panther@gameover.com",
-            "password": "GameOver",
-            "grants": {
-                "READ": {
-                    "COMPANY": [
-                        "COMPANY",
-                        "GROUP",
-                        "KNOWLEDGE_BASE",
-                        "USER"
-                    ],
-                    "GROUP": [
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS"
-                    ]
-                },
-                "WRITE": {
-                    "COMPANY": [
-                        "COMPANY",
-                        "GROUP",
-                        "KNOWLEDGE_BASE"
-                    ],
-                    "GROUP": [
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS"
-                    ]
-                }
-            }
-        }
-    ],
-    "usersv2": [
-        {
-            "name": "Panther",
-            "email": "panther@gameover.com",
-            "password": "GameOver",
-            "grants": {
-                "READ": {
-                    "SYSTEM": [
-                        "SYSTEM",
-                        "COMPANY",
-                        "GROUP",
-                        "MODEL",
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS",
-                        "USER"
-                    ],
-                    "COMPANY": [
-                        "SYSTEM",
-                        "COMPANY",
-                        "GROUP",
-                        "MODEL",
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS",
-                        "USER"
-                    ],
-                    "GROUP": [
-                        "SYSTEM",
-                        "COMPANY",
-                        "GROUP",
-                        "MODEL",
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS",
-                        "USER"
-                    ],
-                    "MODEL": [
-                        "SYSTEM",
-                        "COMPANY",
-                        "GROUP",
-                        "MODEL",
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS",
-                        "USER"
-                    ],
-                    "KNOWLEDGE_BASE": [
-                        "SYSTEM",
-                        "COMPANY",
-                        "GROUP",
-                        "MODEL",
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS",
-                        "USER"
-                    ],
-                    "MEMBERS": [
-                        "SYSTEM",
-                        "COMPANY",
-                        "GROUP",
-                        "MODEL",
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS",
-                        "USER"
-                    ],
-                    "USER": [
-                        "SYSTEM",
-                        "COMPANY",
-                        "GROUP",
-                        "MODEL",
-                        "KNOWLEDGE_BASE",
-                        "MEMBERS",
-                        "USER"
-                    ]
-                }
-            }
-        }
-    ],
-    "usersv3": [
-        {
-            "name": "Juan",
-            "permissions": 1,
-            "permissionsMap": {
-                "SYSTEM": 10,
-                "GROUP": 2,
-                "COMPANY": 2
-            },
-            "permissionsByScopeAsString": "SYSTEM: ESCRIBIR ELIMINAR \nCOMPANY: ESCRIBIR \nGROUP: ESCRIBIR",
-            "permissionsAsString": "LEER",
-            "permissionsByScope": {
-                "SYSTEM": [
-                    null,
-                    "ESCRIBIR",
-                    null,
-                    "ELIMINAR"
-                ],
-                "GROUP": [
-                    null,
-                    "ESCRIBIR",
-                    null,
-                    null
-                ],
-                "COMPANY": [
-                    null,
-                    "ESCRIBIR",
-                    null,
-                    null
-                ]
-            }
-        },
-        {
-            "name": "Juan",
-            "permissions": 1,
-            "permissionsMap": {
-                "SYSTEM": 8,
-                "GROUP": 2,
-                "COMPANY": 2
-            },
-            "permissionsByScopeAsString": "SYSTEM: ELIMINAR \nCOMPANY: ESCRIBIR \nGROUP: ESCRIBIR",
-            "permissionsAsString": "LEER",
-            "permissionsByScope": {
-                "SYSTEM": [
-                    null,
-                    null,
-                    null,
-                    "ELIMINAR"
-                ],
-                "GROUP": [
-                    null,
-                    "ESCRIBIR",
-                    null,
-                    null
-                ],
-                "COMPANY": [
-                    null,
-                    "ESCRIBIR",
-                    null,
-                    null
-                ]
-            }
-        },
-        {
-            "name": "Juan",
-            "permissions": 1,
-            "permissionsMap": {
-                "GROUP": 2,
-                "COMPANY": 2
-            },
-            "permissionsByScopeAsString": "COMPANY: ESCRIBIR \nGROUP: ESCRIBIR",
-            "permissionsAsString": "LEER",
-            "permissionsByScope": {
-                "GROUP": [
-                    null,
-                    "ESCRIBIR",
-                    null,
-                    null
-                ],
-                "COMPANY": [
-                    null,
-                    "ESCRIBIR",
-                    null,
-                    null
-                ]
-            }
-        },
-        {
-            "name": "Model",
-            "permission": "",
-            "permissions": {
-                "e7912251-25aa-4082-9238-eaa5e859b558": "GROUPS::1",
-                "1143fdc2-b7bd-4af3-abb3-90ce83545161": "USERS::1",
-                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": "COMPANIES::11"
-            }
-        },
-        {
-            "name": "Model",
-            "permission": "",
-            "permissions": {
-                "e7912251-25aa-4082-9238-eaa5e859b558": "GROUPS::1",
-                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": "COMPANIES::3"
-            }
-        }
-    ],
     "models": [
         {
             "name": "Turing",
@@ -324,6 +11,31 @@
                 "e7912251-25aa-4082-9238-eaa5e859b558",
                 "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a"
             ]
+        },
+        {
+            "permissions": {
+                "e7912251-25aa-4082-9238-eaa5e859b558": 7,
+                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
+            },
+            "name": "Turing",
+            "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
+        },
+        {
+            "permissions": {
+                "e7912251-25aa-4082-9238-eaa5e859b558": 7
+            },
+            "name": "ChatGPT",
+            "id": "1143fdc2-b7bd-4af3-abb3-90ce83545161"
+        },
+        {
+            "permissions": {
+                "6954f883-3bcc-43ad-b6a4-a7d50dbaf09a": 7
+            }
+        },
+        {
+            "permissions": {
+                "e7912251-25aa-4082-9238-eaa5e859b558": 7
+            }
         }
     ]
 }

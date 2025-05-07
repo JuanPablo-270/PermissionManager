@@ -1,4 +1,4 @@
-package com.sintergica.ai.permissionmanager.v3;
+package com.sintergica.ai.permissionmanager.v5.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

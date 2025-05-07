@@ -1,114 +1,75 @@
 package com.sintergica.ai.permissionmanager.v5;
 
-import java.util.List;
 import java.util.UUID;
 
-import com.sintergica.ai.permissionmanager.v3.JsonParser;
-import com.sintergica.ai.permissionmanager.v3.p1.Permission;
-
+import com.sintergica.ai.permissionmanager.v5.entities.Knowledge;
+import com.sintergica.ai.permissionmanager.v5.entities.Model;
+import com.sintergica.ai.permissionmanager.v5.entities.User;
+import com.sintergica.ai.permissionmanager.v5.util.JsonParser;
 public class Echo {
 
-    public static class User {
-
-        private String name;
-        private UUID ID;
-
-        public User(String name, UUID ID) {
-            this.name = name;
-            this.ID = ID;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public UUID getID() {
-            return ID;
-        }
-
-        public void setID(UUID ID) {
-            this.ID = ID;
-        }
-    }
-
-
-    public static void printUser(PermissionEntity permissionEntity, List<User> users){
-        for (User user : users) {
-            System.out.println(
-                    ">> User<"
-                    + user.getName()
-                    + " "
-                    + user.getID()
-                    + ">"
-            );
-
-            System.out.println(
-                    user.getName()
-                    + " Can Read "
-                    + permissionEntity.getName()
-                    + ": "
-                    + permissionEntity.hasPermission(user.getID(), Permission.LEER)
-            );
-            System.out.println(
-                    user.getName()
-                    + " Can Execute "
-                    + permissionEntity.getName()
-                    + ": "
-                    + permissionEntity.hasPermission(user.getID(), Permission.EJECUTAR)
-            ); // True
-            System.out.println(
-                    user.getName()
-                    + " Can Write "
-                    + permissionEntity.getName()
-                    + ": "
-                    + permissionEntity.hasPermission(user.getID(), Permission.ESCRIBIR)
-            ); // True
-        }
-    
-    }
-
     public static void run() {
+        
+        UUID id = UUID.fromString("1143fdc2-b7bd-4af3-abb3-90ce83545161");
 
-        PermissionEntity model1 = new PermissionEntity();
-        PermissionEntity model2 = new PermissionEntity();
+        /* <---------------Models---------------> */
+        Model turing = new Model();
+        turing.setName("Turing");
+        turing.setID(id);
 
-        UUID id0 = UUID.fromString("6954f883-3bcc-43ad-b6a4-a7d50dbaf09a");
-        UUID id1 = UUID.fromString("e7912251-25aa-4082-9238-eaa5e859b558");
-        UUID id2 = UUID.fromString("1143fdc2-b7bd-4af3-abb3-90ce83545161");
+        Model chatgpt = new Model();
+        chatgpt.setName("ChatGPT");
+        chatgpt.setID(id);
 
-        User panther = new User("Panther", id0);
-        User rose = new User("Rose", id1);
+        /* <---------------Users---------------> */
+        User panther = new User();
+        panther.setName("Panther");
+        panther.setID(UUID.fromString("6954f883-3bcc-43ad-b6a4-a7d50dbaf09a"));
+
+        User rose = new User();
+        rose.setName("Rose");
+        rose.setID(UUID.fromString("e7912251-25aa-4082-9238-eaa5e859b558"));
+
+        /* <---------------Groups---------------> */
+
+        /* <---------------Knowledge Bases---------------> */
+        Knowledge knowledge_base_turing = new Knowledge();
+        knowledge_base_turing.setName("Knowledge Base Turing");
+        
+        Knowledge knowledge_base_chatgpt = new Knowledge();
+        knowledge_base_chatgpt.setName("Knowledge Base ChatGPT");
+        
+        /* <---------------Access Manager---------------> */
+        AccessManager accessManager = AccessManager.manager();
+
+        //accessManager.manage(knowledge_base_turing);
+        accessManager.grantAccess(panther.getID(), knowledge_base_turing, Permission.READ);
+        //accessManager.grantAccess(panther.getID(), knowledge_base_turing, Permission.WRITE);
+        //accessManager.grantAccess(panther.getID(), knowledge_base_turing, Permission.EXECUTE);
+
+        //accessManager.manage(knowledge_base_chatgpt);
+        //accessManager.grantAccess(panther.getID(), knowledge_base_chatgpt, Permission.READ);
+        accessManager.grantAccess(panther.getID(), knowledge_base_chatgpt, Permission.WRITE);
+        //accessManager.grantAccess(panther.getID(), knowledge_base_chatgpt, Permission.EXECUTE);
+
+        //accessManager.manage(turing);
+        // accessManager.grantAccess(panther.getID(), turing, Permission.READ);
+        // accessManager.grantAccess(panther.getID(), turing, Permission.WRITE);
+        accessManager.grantAccess(panther.getID(), turing, Permission.EXECUTE);
+
+        //accessManager.manage(chatgpt);
+        accessManager.grantAccess(rose.getID(), chatgpt, Permission.READ);
+        accessManager.grantAccess(panther.getID(), chatgpt, Permission.WRITE);
+        accessManager.grantAccess(rose.getID(), chatgpt, Permission.EXECUTE);
+
+        JsonParser.parse(knowledge_base_turing);
+        JsonParser.parse(knowledge_base_chatgpt);
+
+        JsonParser.parse(turing);
+        JsonParser.parse(chatgpt);
 
 
-        model1.setName("Turing");
-        model2.setName("Turing-La-Secuela");
-
-
-        model1.setID(id2);
-
-        model1.setPermission(id0, Permission.LEER);
-        model1.setPermission(id0, Permission.ESCRIBIR);
-        model1.setPermission(id0, Permission.ELIMINAR);
-
-        model1.setPermission(id1, Permission.LEER);
-        model1.setPermission(id1, Permission.ESCRIBIR);
-        model1.setPermission(id1, Permission.ELIMINAR);
-
-        model2.setPermission(id1, Permission.LEER);
-        model2.setPermission(id1, Permission.ESCRIBIR);
-        model2.setPermission(id1, Permission.ELIMINAR);
-
-        JsonParser.parse(model1);
-        JsonParser.parse(model2);
-
-        List<User> users = List.of(panther, rose);
-        printUser(model1, users);
-        printUser(model2, users);
-
+        System.out.println("Panther can READ Turing?: " + accessManager.userCanAccess(panther.getID(), turing, Permission.READ));
     }
 
     public static void main(String[] args) {
