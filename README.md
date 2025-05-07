@@ -1,3 +1,4 @@
 # Permission Manager
 
-***A simple permission manager using bitflags nor enums*** 
+***A simple permission manager using bitflags enums***
+
